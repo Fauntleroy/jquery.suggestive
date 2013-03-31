@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="../jquery.suggestive.js"></script>
+	<script>
+		$(function(){
+			$('textarea').suggestive({
+				delay: 200,
+				max: 10,
+				matches: [{
+					match: /^(?:\/msg|\/kick)\s(.+)/i,
+					source: ['swindlefingers', 'MANdelay', 'fondle'],
+					comparator: function( source, string ){
+
+					},
+					sorter: function( a, b ){
+						( a < b )? -1: ( a > b )? 1: 0;
+					},
+					max: 15
+				}, {
+					match: /(?:^:|\s:)(.+)/i,
+					source: ['shipit', 'finnadie', 'heart']
+				}]
+			});
+		});
+	</script>
+
+</head>
+<body>
+
+	<textarea id="chat"></textarea>
+	<textarea id="chat"></textarea>
+
+	<ul class="stuff">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+
+</body>
+</html>
+
+<!--
+/msg [nick]
+/kick [nick]
+@[nick]
+:[emoji]
+-->
